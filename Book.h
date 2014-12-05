@@ -9,6 +9,8 @@
 #ifndef examples_Book_h
 #define examples_Book_h
 
+#include <string>
+
 class Patron;
 
 enum Locale {ON_SHELF, ON_HOLD, CHECKED_OUT};
@@ -27,7 +29,6 @@ public:
     static const int CHECK_OUT_LENGTH = 21;
     Book();
     Book(std::string idc, std::string t, std::string a);
-    int getCheckOutLength();
     std::string getIdCode();
     std::string getTitle();
     std::string getAuthor();
