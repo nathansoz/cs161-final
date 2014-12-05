@@ -7,6 +7,10 @@ Book::Book(std::string idc, std::string t, std::string a)
     idCode = idc;
     title = t;
     author = a;
+    location = ON_SHELF;
+    requestedBy = NULL;
+    checkedOutBy = NULL;
+
 }
 
 //All of the getters for properties
