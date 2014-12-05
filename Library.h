@@ -13,6 +13,9 @@
 #include <stdio.h>
 #include <string>
 
+#include "Patron.h"
+#include "Book.h"
+
 class Patron;
 class Book;
 

@@ -6,5 +6,8 @@
 
 int main()
 {
+    Library newLib;
+
+    newLib.addBook();
     return 0;
 }
