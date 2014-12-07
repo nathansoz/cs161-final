@@ -86,7 +86,17 @@ int main()
                 break;
             }
             case 6:
+            {
+                std::string tmpPatronID;
+                double adjustment;
+                std::cout << "Enter patron id: ";
+                std::cin.ignore(1000, '\n');
+                getline(std::cin, tmpPatronID);
+                std::cout << "Enter adjustment amount: ";
+                std::cin >> adjustment;
+                library.payFine(tmpPatronID, adjustment);
                 break;
+            }
             case 7:
                 library.addBook();
                 break;

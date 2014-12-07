@@ -133,6 +133,18 @@ Book* Library::GetBook(std::string idNum)
 void Library::incrementCurrentDate()
 {
     currentDate++;
+
+    //Loop through and increase fines as needed
+    for(int i = 0; i < members.size(); i++)
+    {
+        for(int j = 0; j < members.at(i).getCheckedOutBooks().size(); j++)
+        {
+            if((members.at(i).getCheckedOutBooks().at(j)->getDateCheckedOut() + 21) < currentDate)
+            {
+                members.at(i).amendFine(DAILY_FINE);
+            }
+        }
+    }
 }
 
 void Library::payFine(std::string patronID, double payment)
