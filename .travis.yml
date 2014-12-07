@@ -6,7 +6,7 @@ compiler:
 before_script:
   - mkdir build
   - cd build
-  - cmake ..sudo halt
+  - cmake ..
   
 
 script: make
