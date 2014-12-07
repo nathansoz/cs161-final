@@ -262,7 +262,16 @@ void Library::viewPatronInfo(std::string patronID)
 
         if(patron->getCheckedOutBooks().size() == 0)
         {
-
+            std::cout << "No checked out books." << std::endl << std::endl;
+        }
+        else
+        {
+            std::cout << "Checked out books:" << std::endl << std::endl;
+            for(int i = 0; i < patron->getCheckedOutBooks().size(); i++)
+            {
+                viewBookInfo(patron->getCheckedOutBooks().at(i)->getIdCode());
+            }
+            std::cout << std::endl << std::endl;
         }
     }
 }
