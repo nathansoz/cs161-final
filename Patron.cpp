@@ -1,9 +1,12 @@
 #include "Patron.h"
+Patron::Patron() {}
 
 Patron::Patron(std::string idn, std::string n)
 {
     idNum = idn;
     name = n;
+    fineAmount = 0.00;
+    checkedOutBooks.reserve(100);
 }
 
 std::vector<Book*> Patron::getCheckedOutBooks()

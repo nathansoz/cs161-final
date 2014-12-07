@@ -25,12 +25,17 @@ private:
     std::vector<Book> holdings;
     std::vector<Patron> members;
     int currentDate;
+
+    //small helper functions
+    Book* GetBook(std::string idNum);
+    Patron* GetPatron(std::string idNum);
 public:
     static const double DAILY_FINE = 0.1;
-    Library() {};
+    Library();
     void addBook();
     void addMember();
     void checkOutBook(std::string patronID, std::string bookID);
+    int GetCurrentDate();
     void returnBook(std::string bookID);
     void requestBook(std::string patronID, std::string bookID);
     void incrementCurrentDate();
