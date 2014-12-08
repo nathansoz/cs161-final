@@ -4,6 +4,7 @@
 
 Book::Book(std::string idc, std::string t, std::string a)
 {
+    //It is useful to initialize Requestedby and checkedOutBy to NULL
     idCode = idc;
     title = t;
     author = a;

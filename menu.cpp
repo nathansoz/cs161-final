@@ -22,10 +22,10 @@ int main()
         std::cout << "2) View book info" << std::endl;
         std::cout << "3) Check out book" << std::endl;
         std::cout << "4) Return book" << std::endl;
-        std::cout << "5) Place book on hold" << std::endl;
+        std::cout << "5) Place book on hold (request book)" << std::endl;
         std::cout << "6) Pay fine" << std::endl;
         std::cout << "7) Add a book" << std::endl;
-        std::cout << "8) Add a patron" << std::endl;
+        std::cout << "8) Add a member" << std::endl;
         std::cout << "9) Increment day" << std::endl;
         std::cout << "10) Exit" << std::endl;
 
@@ -115,4 +115,6 @@ int main()
                 break;
         }
     }
+
+    return 0;
 }

@@ -11,6 +11,10 @@ Library::Library()
     currentDate = 0;
 }
 
+//Prompt the user for the idCode, title and author of the book
+//If the book already exists, then exit the function.
+//Else, add the book to the collection
+
 void Library::addBook()
 {
     std::string idCode;
@@ -38,6 +42,10 @@ void Library::addBook()
 
 }
 
+//Prompt the user for the id number of the patron and name
+//If the patron already exists, say so and exit the function
+//Else, add the patron
+
 void Library::addMember()
 {
     std::cin.ignore(1000, '\n');
@@ -61,6 +69,10 @@ void Library::addMember()
     members.push_back(tmpPatron);
 }
 
+//Takes a patron and book ID
+//Checks to make sure that the patron and book exist, returns if they dont
+//If book is on hold, only check out to that patron
+//If the book is on the shelf, it's fair game, set proper values.
 void Library::checkOutBook(std::string patronID, std::string bookID)
 {
     Book* book = GetBook(bookID);
@@ -104,6 +116,8 @@ int Library::GetCurrentDate()
     return currentDate;
 }
 
+//The Next two functions are helpers that I found myself using a lot. It helped
+//keep the code cleaner. Returns a nullptr if we don't find anything
 Patron* Library::GetPatron(std::string idNum)
 {
     for(int i = 0; i < members.size(); i++)
@@ -130,6 +144,7 @@ Book* Library::GetBook(std::string idNum)
     return NULL;
 }
 
+//Increments the date AND computes fines
 void Library::incrementCurrentDate()
 {
     currentDate++;
@@ -147,6 +162,8 @@ void Library::incrementCurrentDate()
     }
 }
 
+//I left this able to take negative numbers, so the librarian could, in theory, use the
+//pay fine menu option to add an additional fine (for lost book?)
 void Library::payFine(std::string patronID, double payment)
 {
     for(int i = 0; i < members.size(); i++)
@@ -159,6 +176,8 @@ void Library::payFine(std::string patronID, double payment)
     }
 }
 
+//Puts a book on the hold shelf, unless it is already requested.
+//If checked out, note that it should go to the hold shelf
 void Library::requestBook(std::string patronID, std::string bookID)
 {
     Book* book = GetBook(bookID);
@@ -183,6 +202,7 @@ void Library::requestBook(std::string patronID, std::string bookID)
     }
 }
 
+//Return a book, if it is not already on the shelf.
 void Library::returnBook(std::string bookID)
 {
     Book* book = GetBook(bookID);
@@ -194,6 +214,10 @@ void Library::returnBook(std::string bookID)
     if(book->getLocation() == ON_SHELF)
     {
         std::cout << "This book is already on the shelf.";
+    }
+    else if(book->getLocation() == ON_HOLD)
+    {
+        std::cout << "This book is on the hold shelf and cannot be returned." << std::endl;
     }
     else
     {
@@ -216,6 +240,8 @@ void Library::returnBook(std::string bookID)
     }
 }
 
+//Goes through the public properties of a book and prints them out.
+//This will print out if a book is checked out AND who requested it, if that situation is true
 void Library::viewBookInfo(std::string bookID)
 {
     Book* book = GetBook(bookID);
@@ -258,6 +284,7 @@ void Library::viewBookInfo(std::string bookID)
     }
 }
 
+//Same as above. Uses viewBookInfo to print books checked out to a patron.
 void Library::viewPatronInfo(std::string patronID)
 {
     Patron* patron = GetPatron(patronID);
