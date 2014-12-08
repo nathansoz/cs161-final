@@ -9,7 +9,7 @@ int main()
 {
     Library library;
 
-    std::cout << "Welcome to the library system!" << std::endl;
+    std::cout << std::endl << std::endl << "Welcome to the library system!" << std::endl;
     std::cout << "Please choose an option below." << std::endl << std::endl;
 
     while(true)
