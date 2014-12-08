@@ -80,6 +80,15 @@ void Library::checkOutBook(std::string patronID, std::string bookID)
 
     if(book == NULL || patron == NULL)
     {
+        if(book == NULL)
+        {
+            std::cout << std::endl << "No such book in holdings." << std::endl;
+        }
+        if(patron == NULL)
+        {
+            std::cout << std::endl << "No such patron in records." << std::endl;
+        }
+
         return;
     }
 
@@ -166,6 +175,14 @@ void Library::incrementCurrentDate()
 //pay fine menu option to add an additional fine (for lost book?)
 void Library::payFine(std::string patronID, double payment)
 {
+    Patron* patron = GetPatron(patronID);
+
+    if(patron == NULL)
+    {
+        std::cout << std::endl << "No such patron exists. No adjustment made." << std::endl;
+        return;
+    }
+
     for(int i = 0; i < members.size(); i++)
     {
         if(members.at(i).getIdNum() == patronID)
@@ -185,6 +202,14 @@ void Library::requestBook(std::string patronID, std::string bookID)
 
     if(book == NULL || patron == NULL)
     {
+        if(book == NULL)
+        {
+            std::cout << std::endl << "No such book in holdings." << std::endl;
+        }
+        if(patron == NULL)
+        {
+            std::cout << std::endl << "No such patron in records." << std::endl;
+        }
         return;
     }
 
