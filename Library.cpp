@@ -189,7 +189,7 @@ void Library::payFine(std::string patronID, double payment)
         {
             members.at(i).amendFine(-(payment));
             std::cout << "Fines for " << members.at(i).getName() << " are now $" <<
-                    members.at(i).getFineAmount() << std::endl;
+                    std::setprecision(2) << std::fixed << members.at(i).getFineAmount() << std::endl;
             break;
         }
     }
