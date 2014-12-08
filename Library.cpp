@@ -234,6 +234,7 @@ void Library::returnBook(std::string bookID)
     
     if(book == NULL)
     {
+        std::cout << std::endl << "No such book in holdings." << std::endl << std::endl;
         return;
     }
     if(book->getLocation() == ON_SHELF)
