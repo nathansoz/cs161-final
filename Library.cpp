@@ -94,7 +94,7 @@ void Library::checkOutBook(std::string patronID, std::string bookID)
 
     if(book->getLocation() == CHECKED_OUT)
     {
-        std::cout << "This book is already checked out.";
+        std::cout << "This book is already checked out." << std::endl << std::endl;
     }
     else if(book->getLocation() == ON_HOLD)
     {
@@ -188,6 +188,8 @@ void Library::payFine(std::string patronID, double payment)
         if(members.at(i).getIdNum() == patronID)
         {
             members.at(i).amendFine(-(payment));
+            std::cout << "Fines for " << members.at(i).getName() << " are now $" <<
+                    members.at(i).getFineAmount() << std::endl;
             break;
         }
     }
@@ -239,7 +241,7 @@ void Library::returnBook(std::string bookID)
     }
     if(book->getLocation() == ON_SHELF)
     {
-        std::cout << "This book is already on the shelf.";
+        std::cout << "This book is already on the shelf." << std::endl;
     }
     else if(book->getLocation() == ON_HOLD)
     {
